@@ -1,15 +1,22 @@
-// Header.tsx
-
 import React from "react";
 import "./Header.scss";
 import logoImage from "../../assets/logo.png";
+import SearchIcon from "@mui/icons-material/Search";
+import Dropdown from "../common/Dropdown";
+
 const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="logo">
         <img src={logoImage} alt="logo" />
       </div>
-      <div className="search-bar">Search Bar</div>
+      <div className="search-bar">
+        <Dropdown />
+        <input type="text" placeholder="Ara..." />
+        <button type="submit">
+          <SearchIcon />
+        </button>
+      </div>
       <nav className="nav">
         <ul className="nav-list">
           <li className="nav-item">
