@@ -1,0 +1,66 @@
+// Header.scss
+
+.header {
+  background-color: #2196f3; /* Mavi tonu */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .search-bar {
+    flex: 1;
+    margin: 0 20px;
+  }
+
+  .nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .nav-item {
+      margin-left: 20px;
+    }
+
+    .nav-item:first-child {
+      margin-left: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffab91; /* Turuncu tonu */
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #ffc107; /* Parlak turuncu tonu */
+    }
+  }
+
+  .user-info,
+  .cart,
+  .language-selector {
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .user-info,
+    .cart,
+    .language-selector {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+}
