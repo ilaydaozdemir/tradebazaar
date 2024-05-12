@@ -2,11 +2,15 @@ import React from "react";
 import "./Header.scss";
 import logoImage from "../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import Dropdown from "../common/Dropdown";
 
 const Header: React.FC = () => {
   return (
     <header className="header">
+      <div className="popup-balloon">
+        <SupportAgentIcon />
+      </div>
       <div className="logo">
         <img src={logoImage} alt="logo" />
       </div>
@@ -26,16 +30,16 @@ const Header: React.FC = () => {
             <a href="#">Ürünler</a>
           </li>
           <li className="nav-item">
-            <a href="#">Hakkımızda</a>
+            <a href="#">Sipariş Takibi </a>
           </li>
           <li className="nav-item">
-            <a href="#">İletişim</a>
+            <a href="#">Kampanyalar</a>
           </li>
         </ul>
       </nav>
-      <div className="user-info">Kullanıcı Bilgileri</div>
+      <div className="user-info">Giriş</div>
       <div className="cart">Sepet</div>
-      <div className="language-selector">Dil Seçici</div>
+      <div className="language-selector">Dil Seçenekleri</div>
     </header>
   );
 };

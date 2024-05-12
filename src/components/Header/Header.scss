@@ -1,3 +1,4 @@
+@import "/src/scss/mixins.scss";
 .header {
   background-color: white;
   color: #232338;
@@ -7,9 +8,38 @@
   align-items: center;
   position: sticky;
   top: 0;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+  background: linear-gradient(
+    45deg,
+    #9ac1f0,
+    #72fa93,
+    #a0e548,
+    #e45f2b,
+    #f6c445
+  );
+  .popup-balloon {
+    position: fixed;
+    cursor: pointer;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff5733;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 9999;
+    @include boxShadow;
+    animation: pulse 1s infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  @include boxShadow;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     text-align: center;
@@ -26,143 +56,139 @@
       transition: all 0.3s ease; /* Anımasyon eklemek için */
       clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
       cursor: pointer;
-      &:hover {
-        transform: scale(
-          1.1
-        ); /* Üzerine gelindiğinde büyüme efekti eklemek için */
-      }
+    }
+    &:hover {
+      transform: scale(
+        1.1
+      ); /* Üzerine gelindiğinde büyüme efekti eklemek için */
+    }
+  }
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin: 0 20px;
+  .dropdown {
+    position: relative;
+    min-width: 140px;
+    height: 43px;
+    text-align: center;
+    background-color: #ff5733;
+    display: inline-block;
+    text-transform: lowercase;
+  }
+
+  .dropbtn {
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #ff5733;
+    font-weight: bold;
+    text-transform: uppercase;
+    .dropbtn-icon {
+      color: #fbff91;
+      font-size: 20px;
     }
   }
 
-  .search-bar {
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ff5733;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 140px;
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ff8c33;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1; /* Giriş kutusunun genişliğini ayarlamak için */
+  }
+
+  button[type="submit"] {
+    background-color: #448e47;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+}
+
+.nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
-    flex: 1;
-    margin: 0 20px;
-    .dropdown {
-      position: relative;
-      min-width: 140px;
-      height: 43px;
-      text-align: center;
-      background-color: #ff5733;
-      display: inline-block;
-      text-transform: lowercase;
-    }
-
-    .dropbtn {
-      color: white;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      background-color: #ff5733;
-      font-weight: bold;
-      text-transform: uppercase;
-      .dropbtn-icon {
-        color: #fbff91;
-        font-size: 20px;
-      }
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #ff5733;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      min-width: 140px;
-    }
-
-    .dropdown-content a {
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #ff8c33;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      margin: 0 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      flex: 1; /* Giriş kutusunun genişliğini ayarlamak için */
-    }
-
-    button[type="submit"] {
-      background-color: #448e47;
-      color: white;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #45a049;
-    }
   }
 
-  .nav {
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-    }
-
-    .nav-item {
-      margin-left: 20px;
-    }
-
-    .nav-item:first-child {
-      margin-left: 0;
-    }
-
-    a {
-      text-decoration: none;
-      color: #ff5733; /* Turuncu tonu */
-      background-color: transparent;
-      transition: color 0.3s ease, background-color 0.3s ease,
-        transform 0.3s ease;
-
-      &:hover {
-        color: #ff0707;
-        background-color: white;
-      }
-    }
+  .nav-item {
+    margin-left: 20px;
   }
+
+  .nav-item:first-child {
+    margin-left: 0;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white; /* Turuncu tonu */
+    background-color: transparent;
+    position: relative;
+  }
+}
+.user-info,
+.cart,
+.language-selector {
+  margin-left: 20px;
+  background-color: #64b5f6;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  font-weight: bolder;
+  transition: all 0.3s ease; /* Hover efekti için geçiş efekti ekleyelim */
+}
+
+.user-info:hover,
+.cart:hover,
+.language-selector:hover {
+  background-color: #2196f3; /* Hover olduğunda arka plan rengini değiştirelim */
+}
+
+@media screen and (max-width: 768px) {
   .user-info,
   .cart,
   .language-selector {
-    margin-left: 20px;
-    background-color: #64b5f6;
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 8px;
-    color: white;
-    font-weight: bolder;
-    transition: all 0.3s ease; /* Hover efekti için geçiş efekti ekleyelim */
-  }
-
-  .user-info:hover,
-  .cart:hover,
-  .language-selector:hover {
-    background-color: #2196f3; /* Hover olduğunda arka plan rengini değiştirelim */
-  }
-
-  @media screen and (max-width: 768px) {
-    .user-info,
-    .cart,
-    .language-selector {
-      margin-left: 0;
-      margin-top: 10px;
-    }
+    margin-left: 0;
+    margin-top: 10px;
   }
 }
