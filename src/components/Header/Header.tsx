@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.scss";
+import "./style/Header.scss";
 import logoImage from "../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
@@ -12,7 +12,10 @@ const Header: React.FC = () => {
         <SupportAgentIcon />
       </div>
       <div className="logo">
-        <img src={logoImage} alt="logo" />
+        <a href="/#">
+          {" "}
+          <img src={logoImage} alt="logo" />
+        </a>
       </div>
       <div className="search-bar">
         <Dropdown />
@@ -24,16 +27,16 @@ const Header: React.FC = () => {
       <nav className="nav">
         <ul className="nav-list">
           <li className="nav-item">
-            <a href="#">Anasayfa</a>
+            <a href="/#">Anasayfa</a>
           </li>
           <li className="nav-item">
-            <a href="#">Ürünler</a>
+            <a href="/products">Ürünler</a>
           </li>
           <li className="nav-item">
-            <a href="#">Sipariş Takibi </a>
+            <a href="/ordertracking">Sipariş Takibi </a>
           </li>
           <li className="nav-item">
-            <a href="#">Kampanyalar</a>
+            <a href="/discounts">Kampanyalar</a>
           </li>
         </ul>
       </nav>
