@@ -5,11 +5,13 @@ import Products from "./components/pages/Products/Products";
 import Home from "./components/pages/Home/Home";
 import OrderTracking from "./components/pages/OrderTracking/OrderTracking";
 import Discounts from "./components/pages/Discounts/Discounts";
+import SliderComponet from "./components/Slider/Slider";
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <SliderComponet />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
